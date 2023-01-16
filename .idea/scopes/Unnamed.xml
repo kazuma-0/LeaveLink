@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Unnamed" pattern="file[leave-automation]:client//*||file[leave-automation]:components//*||file[leave-automation]:contexts//*||file[leave-automation]:custom-components//*||file[leave-automation]:interfaces//*||file[leave-automation]:pages//*||file[leave-automation]:public//*||file[leave-automation]:styles//*||file[leave-automation]:utils//*||file:theme.ts" />
+</component>
