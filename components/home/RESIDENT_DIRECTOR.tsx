@@ -16,12 +16,15 @@
  *
  */
 
-import PendingApprovals from "../dashboard/pending-approvals";
+import PendingApprovals from '../dashboard/pending-approvals';
+
 
 const RESIDENT_DIRECTOR = () => {
-	return <>
-	<PendingApprovals/>
-	</>;
+	return (
+		<>
+			<PendingApprovals />
+		</>
+	);
 };
 
 export default RESIDENT_DIRECTOR;

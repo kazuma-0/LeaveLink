@@ -40,7 +40,7 @@ export interface LeaveHistoryProps {
 		];
 	};
 }
-const LeaveHistory: React.FC<LeaveHistoryProps> = ({ leave: {data} }) => {
+const LeaveHistory: React.FC<LeaveHistoryProps> = ({ leave: { data } }) => {
 	return (
 		<>
 			<Heading pb={5}>Leave History</Heading>

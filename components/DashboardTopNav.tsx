@@ -33,16 +33,16 @@ import {
 import { IconNotification, IconUser } from '@tabler/icons';
 import React from 'react';
 import { useUser } from '../contexts/UserProvider';
-import {useIsFetching} from "@tanstack/react-query";
-import Loader from "./Loader";
+import { useIsFetching } from '@tanstack/react-query';
+import Loader from './Loader';
 
 const DashboardTopNav: React.FC = ({}) => {
 	const userMenu = useDisclosure();
 	const user = useUser();
-	const loading = useIsFetching({})
+	const loading = useIsFetching({});
 	return (
 		<>
-			{!!loading && <Loader/>}
+			{!!loading && <Loader />}
 			<Box
 				h={16}
 				shadow={'sm'}

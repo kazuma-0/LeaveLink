@@ -50,13 +50,14 @@ const initialFormState = {
 	leaveType: '',
 	startDate: '',
 	endDate: '',
-	attachment: null,
+	file: null,
 };
 const date = new Date();
 const ApplyLeave: React.FC = () => {
 	const [state, dispatch] = useReducer((state: any, action: any) => {
 		return { ...state, [action.type]: action.payload };
 	}, initialFormState);
+	const fileRef = useRef(null);
 	const toast = useToast({
 		position: 'bottom-right',
 		variant: 'left-accent',
@@ -75,7 +76,11 @@ const ApplyLeave: React.FC = () => {
 	});
 	const applyApproval = useMutation(
 		async () => {
-			const { data } = await client.post('approval', state);
+			const { data } = await client.post('approval', state,{
+				headers:{
+					"Content-Type": 'multipart/form-data'
+				}
+			});
 			return data;
 		},
 		{
@@ -244,7 +249,7 @@ const ApplyLeave: React.FC = () => {
 									ref={fileInputRef}
 									onChange={(e) =>
 										dispatch({
-											type: 'attachment',
+											type: 'file',
 											// @ts-ignore TODO: Add checks
 											payload: e.target.files[0],
 										})

@@ -17,10 +17,11 @@
  */
 
 import {
+	IconBuildingFactory2,
 	IconForms,
 	IconReportAnalytics,
 	IconUserCheck,
-	IconUserExclamation,
+	IconUserExclamation, IconUserPlus,
 } from '@tabler/icons';
 import dynamic from 'next/dynamic';
 import { ComponentType, ReactElement } from 'react';
@@ -91,6 +92,63 @@ const navigationItems: INavigationItem[] = [
 		component: dynamic(
 			() =>
 				import('../../components/dashboard/ApprovalRequests').then(
+					(mod) => mod.default
+				),
+			{ ssr: false }
+		),
+	},
+	{
+		label: 'Add Faculty',
+		icon: <IconBuildingFactory2 />,
+		roles: [
+			Role.EDITOR,
+			Role.REGISTRAR,
+		],
+		component: dynamic(
+			() =>
+				import('../../components/dashboard/admin/add-faculty').then(
+					(mod) => mod.default
+				),
+			{ ssr: false }
+		),
+	},{
+		label: 'Add Department',
+		icon: <IconBuildingFactory2 />,
+		roles: [
+			Role.EDITOR,
+			Role.REGISTRAR,
+		],
+		component: dynamic(
+			() =>
+				import('../../components/dashboard/admin/add-department').then(
+					(mod) => mod.default
+				),
+			{ ssr: false }
+		),
+	},{
+		label: 'Add Branch',
+		icon: <IconBuildingFactory2 />,
+		roles: [
+			Role.EDITOR,
+			Role.REGISTRAR,
+		],
+		component: dynamic(
+			() =>
+				import('../../components/dashboard/admin/add-branch').then(
+					(mod) => mod.default
+				),
+			{ ssr: false }
+		),
+	},{
+		label: 'Add Staff',
+		icon: <IconUserPlus />,
+		roles: [
+			Role.EDITOR,
+			Role.REGISTRAR,
+		],
+		component: dynamic(
+			() =>
+				import('../../components/dashboard/admin/add-staff').then(
 					(mod) => mod.default
 				),
 			{ ssr: false }

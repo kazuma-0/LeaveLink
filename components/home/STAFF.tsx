@@ -45,20 +45,23 @@ const STAFF: React.FC = () => {
 	const approvals = useQuery({
 		queryKey: ['approval'],
 		queryFn: async () => {
-			const {data} = await client.get(`approval?user_id=${user.user_id}`)
+			const { data } = await client.get(
+				`approval?user_id=${user.user_id}`
+			);
 			return data;
-		}
-	})
-	console.log(approvals.data)
+		},
+	});
+	console.log(approvals.data);
 	return (
 		<>
 			{/*<DashboardCard>*/}
 			{/*	<Heading fontSize={'xl'}>Casual Leaves available</Heading>*/}
 			{/*</DashboardCard>*/}
-			<DashboardCard rowSpan={3} colSpan={3}>
-				<Heading size={'lg'}>
-					Pending Approvals
-				</Heading>
+			<DashboardCard
+				rowSpan={3}
+				colSpan={3}
+			>
+				<Heading size={'lg'}>Pending Approvals</Heading>
 			</DashboardCard>
 			<ApprovalProgress />
 		</>

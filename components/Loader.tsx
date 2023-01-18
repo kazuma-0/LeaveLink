@@ -16,15 +16,24 @@
  *
  */
 
-import React from "react";
-import {Box, Center, Text} from "@chakra-ui/react";
+import React from 'react';
+import { Box, Center, Text } from '@chakra-ui/react';
 
 const Loader = () => {
-    return <Box bgColor={'#ffffff30'} style={{backdropFilter: 'blur(2px)'}} zIndex={99} h={'100vh'} w={'100vw'} position={'fixed'} top={0} right={0}>
-        <Center h={'full'}>
-            <div className="dots"></div>
-        </Center>
-    </Box>
-}
+	return (
+		<Box
+			bgColor={'#ffffff30'}
+			style={{ backdropFilter: 'blur(2px)' }}
+			zIndex={99}
+			position={'fixed'}
+			bottom={10}
+			right={10}
+		>
+			<Center h={'full'}>
+				<div className='dots'></div>
+			</Center>
+		</Box>
+	);
+};
 
 export default Loader;

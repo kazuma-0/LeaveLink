@@ -35,7 +35,7 @@ import {
 } from '@chakra-ui/react';
 import {useRouter} from 'next/router';
 import {useMutation, useQuery} from '@tanstack/react-query';
-import client from '../../../client';
+import client, { client_url } from '../../../client';
 import React from 'react';
 import DashboardCard from '../../../custom-components/DashboardCard';
 import LeaveHistory from '../../../components/LeaveHistory';
@@ -43,6 +43,7 @@ import {useUser} from "../../../contexts/UserProvider";
 import {ApprovalStatus} from "../../../interfaces/ApprovalStatus";
 import approvalQuery from "../../../utils/data/approvalQuery";
 import {IconUserCheck} from "@tabler/icons";
+import Link from 'next/link';
 
 const date = new Date();
 const Approvals: NextPage = () => {
@@ -92,7 +93,7 @@ const Approvals: NextPage = () => {
 			},2e3);
 		}
 	})
-
+	console.log(approval)
 	return (
 		<>
 			<DashboardTopNav />
@@ -185,6 +186,10 @@ const Approvals: NextPage = () => {
 										{approval.data?.[0].leaveSession.toLowerCase()}
 									</span>
 								</Text>
+								<HStack hidden={!approval.data?.[0].file}>
+									{/*<Link as={Button} href={''}>View Attachment</Link>*/}
+									<Button as={Link} href={client_url +  approval.data[0].file} target={'_blank'}>View Attachment</Button>
+								</HStack>
 							</Flex>
 
 							<HStack

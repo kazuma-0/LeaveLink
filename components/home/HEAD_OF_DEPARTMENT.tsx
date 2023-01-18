@@ -16,22 +16,31 @@
  *
  */
 
-import DashboardCard from "../../custom-components/DashboardCard";
-import {Button, Heading, Table, Tbody, Td, Th, Thead, Tr} from "@chakra-ui/react";
-import {useUser} from "../../contexts/UserProvider";
-import {useQuery} from "@tanstack/react-query";
-import client from "../../client";
-import approvalQuery from "../../utils/data/approvalQuery";
-import {ApprovalStatus} from "../../interfaces/ApprovalStatus";
-import Loader from "../Loader";
-import React from "react";
-import {useRouter} from "next/router";
-import PendingApprovals from "../PendingApprovals";
+import DashboardCard from '../../custom-components/DashboardCard';
+import {
+	Button,
+	Heading,
+	Table,
+	Tbody,
+	Td,
+	Th,
+	Thead,
+	Tr,
+} from '@chakra-ui/react';
+import { useUser } from '../../contexts/UserProvider';
+import { useQuery } from '@tanstack/react-query';
+import client from '../../client';
+import approvalQuery from '../../utils/data/approvalQuery';
+import { ApprovalStatus } from '../../interfaces/ApprovalStatus';
+import Loader from '../Loader';
+import React from 'react';
+import { useRouter } from 'next/router';
+import PendingApprovals from '../dashboard/pending-approvals';
 
 const HEAD_OF_DEPARTMENT = () => {
 	return (
 		<>
-			<PendingApprovals/>
+			<PendingApprovals />
 		</>
 	);
 };

@@ -16,11 +16,11 @@
  *
  */
 
-import React from 'react';
-import DashboardCard from '../../custom-components/DashboardCard';
+const reducer = (state: any, action: any) => {
+	if(action.type === 'reset'){
+		return action.payload
+	}
+	return { ...state, [action.type]: action.payload };
+}
 
-const Reports: React.FC = () => {
-	return <DashboardCard></DashboardCard>;
-};
-
-export default Reports;
+export default reducer;
